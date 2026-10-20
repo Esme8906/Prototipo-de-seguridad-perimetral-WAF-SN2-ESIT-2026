@@ -19,17 +19,24 @@ El proyecto está estructurado para una duración de 10 semanas divididas en las
 - David Guzmán (@trabajodavidg) - Ingeniero de Infraestructura Jr.
 - Edwin Gómez (@edchellowin31) - Analista QA / Seguridad Jr.
 - Jhony Jiménez (@jhonyuls-svg) - Desarrollador Web Jr.
-- Mauricio Martínez (@Mauricio-coder783) - Ingeniero de Seguridad Cloud Jr
+- Mauricio Martínez (@Mauricio-coder783) - Ingeniero de Seguridad Cloud Jr.
 
-## 4. Estructura del Repositorio
+## 4. Stack Tecnológico y Plan de Recursos (Fase 1)
+Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del equipo, se ha seleccionado el siguiente stack optimizado para entornos educativos y de control perimetral:
+- **Alojamiento de Aplicación Web (Backend):** Entorno Node.js + Express / plataformas cloud ágiles de despliegue desde GitHub (Vercel / Render).
+- **Seguridad Perimetral y WAF:** Google Cloud Platform (GCP) / Cloud Armor / Cloudflare como capas de filtrado y control de tráfico.
+- **Control de Versiones y Gestión:** GitHub y GitHub Projects (Tablero Kanban).
+- **Herramientas de Diagramación y Calidad:** Draw.io / Lucidchart y Matrices de Riesgos OWASP.
+
+## 5. Estructura del Repositorio
 - Fase 0 – Onboarding y Planificación
 - Fase 1 – Análisis del entorno, riesgos y diseño de la solución
-  - Documento de Análisis
-  - Documento de Diseño
-  - Bitácoras individuales
+  - Documento de Análisis y Diseño
+  - Diagramas de Topología y Flujo de Tráfico
+  - Bitácoras individuales y grupales de la Fase 1
 - Fase 2 – Implementación y Configuración del WAF
 - Fase 3 – Validación y Pruebas de Tráfico
 - Fase 4 – Cierre y Documentación Final
 
-## 5. Enlaces de Interés
+## 6. Enlaces de Interés
 - Tablero de Gestión (GitHub Projects): https://github.com/users/Esme8906/projects/2
