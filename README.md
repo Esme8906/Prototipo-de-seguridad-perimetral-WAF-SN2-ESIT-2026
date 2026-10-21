@@ -23,7 +23,7 @@ El proyecto está estructurado para una duración de 10 semanas divididas en las
 
 ## 4. Stack Tecnológico y Plan de Recursos (Fase 1)
 Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del equipo, se ha seleccionado el siguiente stack optimizado para entornos educativos y de control perimetral:
-- **Alojamiento de Aplicación Web (Backend):** Entorno Node.js + Express / plataformas cloud ágiles de despliegue desde GitHub (Vercel / Render).
+- **Alojamiento de Aplicación Web (Backend / Cloud):** Google Cloud Platform (GCP) / Cloud Run
 - **Seguridad Perimetral y WAF:** Google Cloud Platform (GCP) / Cloud Armor / Cloudflare como capas de filtrado y control de tráfico.
 - **Control de Versiones y Gestión:** GitHub y GitHub Projects (Tablero Kanban).
 - **Herramientas de Diagramación y Calidad:** Draw.io / Lucidchart y Matrices de Riesgos OWASP.
