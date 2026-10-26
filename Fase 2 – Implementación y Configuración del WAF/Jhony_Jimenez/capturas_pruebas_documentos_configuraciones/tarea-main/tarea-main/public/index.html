@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#122a50" />
+    <title>Universidad Nova Digital | Portal de demostración</title>
+    <link rel="stylesheet" href="/styles.css?v=20261025-2" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <div class="utility-bar"><a href="#login">Portal del estudiante</a><a href="#login">Campus virtual</a><a href="#servicios">Servicios universitarios</a><a href="#oferta">Buscar carrera <span>⌕</span></a></div>
+        <div class="topbar">
+          <a class="brand" href="/" aria-label="Universidad Nova Digital, inicio">
+            <span class="brand-mark">N</span>
+            <span>UNIVERSIDAD <strong>NOVA DIGITAL</strong><small>INNOVACIÓN · CONOCIMIENTO · FUTURO</small></span>
+          </a>
+          <nav class="main-nav" aria-label="Navegación principal">
+            <a href="#oferta">Oferta académica</a><a href="#oferta">Admisiones</a><a href="#servicios">Vida estudiantil</a>
+          </nav>
+          <a class="button header-cta" href="#login">INGRESAR <span>→</span></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">UNIVERSIDAD NOVA DIGITAL · CAMPUS EN LÍNEA</p>
+            <h1>Tu próximo paso<br /><span>empieza aquí.</span></h1>
+            <p class="lede">Conoce nuestros programas, descubre los servicios para estudiantes y encuentra nuevas oportunidades para construir tu futuro.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#oferta">Explorar programas <span>↗</span></a>
+              <button class="text-button" id="health-button" type="button">Estado del portal <span>●</span></button>
+            </div>
+          </div>
+          <aside class="login-card" id="login" aria-labelledby="login-title">
+            <div class="login-heading"><span class="login-icon">↗</span><span class="eyebrow">CAMPUS VIRTUAL</span></div>
+            <h2 id="login-title">Acceso estudiantes</h2>
+            <p>Ingresa al portal de servicios académicos.</p>
+            <form id="login-form">
+              <label for="login-email">Correo institucional</label>
+              <input id="login-email" type="email" placeholder="estudiante@nova.edu" required />
+              <label for="login-password">Contraseña</label>
+              <input id="login-password" type="password" placeholder="Contraseña de prueba" required />
+              <button class="button login-button" type="submit">Continuar <span>→</span></button>
+            </form>
+            <div class="login-warning"><strong>Solo demostración.</strong> No ingreses contraseñas reales; la autenticación aún no está implementada.</div>
+            <pre class="response" id="login-response" aria-live="polite">El acceso todavía no está configurado.</pre>
+          </aside>
+        </section>
+
+        <section class="status-row" aria-live="polite">
+          <div class="status-icon">✓</div>
+          <div><strong id="status-title">Servicios académicos en línea</strong><p id="status-detail">Consulta programas, servicios y atención de la comunidad universitaria.</p></div>
+        </section>
+
+        <section class="section-heading" id="oferta">
+          <div><p class="eyebrow">APRENDE A TU MANERA</p><h2>Programas y recursos</h2></div>
+          <p>Opciones académicas y recursos para acompañar tu experiencia universitaria.</p>
+        </section>
+
+        <section class="program-grid">
+          <article class="program-card program-blue"><div class="program-art art-code">{ }</div><p class="program-type">ESCUELA DE TECNOLOGÍA</p><h3>Ingeniería Informática</h3><p>Diseña soluciones digitales y desarrolla las habilidades tecnológicas del futuro.</p><a href="#buscar">Consultar programa <span>→</span></a></article>
+          <article class="program-card program-gold"><div class="program-art art-chart">↗</div><p class="program-type">ESCUELA DE NEGOCIOS</p><h3>Administración de Empresas</h3><p>Aprende a liderar equipos, proyectos y organizaciones en un entorno cambiante.</p><a href="#buscar">Consultar programa <span>→</span></a></article>
+          <article class="program-card program-green"><div class="program-art art-book">▤</div><p class="program-type">SERVICIOS UNIVERSITARIOS</p><h3>Biblioteca digital</h3><p>Explora recursos, guías y materiales de apoyo para tu vida académica.</p><a href="#servicios">Ver servicios <span>→</span></a></article>
+        </section>
+
+        <section class="tools-section" id="servicios">
+          <div class="section-heading compact" id="buscar"><div><p class="eyebrow">VALIDACIÓN DEL PROTOTIPO</p><h2>Pruebas de las rutas web</h2></div><p>Controles de demostración para comprobar respuestas del servidor. No representan servicios reales del campus.</p></div>
+          <div class="tools-grid">
+            <article class="tool-card"><div class="tool-title"><span class="tool-icon">⌕</span><div><span class="method get">GET /search</span><h3>Buscar en el portal</h3></div></div><form id="search-form" class="form-row"><label class="sr-only" for="search-query">Programa o servicio</label><input id="search-query" name="q" placeholder="Ej.: ingeniería informática" maxlength="80" required /><button class="button dark" type="submit">Buscar</button></form><pre class="response" id="search-response" aria-live="polite">Los resultados aparecerán aquí.</pre></article>
+            <article class="tool-card" id="contacto"><div class="tool-title"><span class="tool-icon gold-icon">✉</span><div><span class="method post">POST /comments</span><h3>Solicitar información</h3></div></div><form id="comment-form" class="stack-form"><label class="sr-only" for="comment-text">Mensaje</label><textarea id="comment-text" name="comment" placeholder="Escribe una consulta de ejemplo" maxlength="500" required></textarea><button class="button dark" type="submit">Enviar consulta <span>→</span></button></form><pre class="response" id="comment-response" aria-live="polite">La respuesta aparecerá aquí.</pre></article>
+            <article class="tool-card admin-tool"><div class="tool-title"><span class="tool-icon red-icon">⌑</span><div><span class="method get">GET /admin</span><h3>Panel administrativo</h3></div></div><p class="card-description">Ruta interna incluida para comprobar la respuesta de acceso restringido del prototipo.</p><button class="button outline" id="admin-button" type="button">Consultar ruta <span>→</span></button><pre class="response" id="admin-response" aria-live="polite">La respuesta aparecerá aquí.</pre></article>
+          </div>
+        </section>
+
+        <aside class="notice"><span>i</span><p><strong>Acceso al campus virtual.</strong> El formulario es una muestra de interfaz y no autentica usuarios. No ingreses contraseñas reales.</p></aside>
+      </main>
+
+      <footer><span>UNIVERSIDAD NOVA DIGITAL · PORTAL DE DEMOSTRACIÓN</span><span>WAF SHIELD CLOUD · GRUPO SN-2</span></footer>
+    </div>
+  </body>
+</html>
