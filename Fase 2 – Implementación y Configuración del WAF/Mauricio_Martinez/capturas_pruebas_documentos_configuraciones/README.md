@@ -28,6 +28,21 @@ Esta carpeta contiene la implementación técnica, los scripts de auditoría aut
 | `test_waf_mitigated.py` | Python | Valida la capa mitigada en el puerto `8080` y registra bloqueos con el código `HTTP 403 Forbidden`. |
 | `deploy_waf_policy.sh` | Bash / Google Cloud CLI | Transfiere la política `waf-shield-sn2-policy`, con las reglas 1000, 2000, 3000 y 4000, a Google Cloud Armor. |
 
+---
+
+## 💻 Código Fuente y Configuraciones
+
+### 1. Configuración de Nginx WAF (`nginx_waf.conf`)
+![Configuración de Nginx WAF](nginx_waf.png)
+
+### 2. Script de Auditoría de Línea Base (`test_baseline_waf.py`)
+![Script Auditoría Línea Base](test_baseline_waf.png)
+
+### 3. Script de Auditoría Mitigada (`test_waf_mitigated.py`)
+![Script Auditoría Mitigada](test_waf_mitigated.png)
+
+---
+
 ## 🧰 Tecnologías y herramientas
 
 - **Python 3.x** — scripts de auditoría.
