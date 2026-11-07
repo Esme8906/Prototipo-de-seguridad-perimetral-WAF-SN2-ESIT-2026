@@ -1,0 +1,68 @@
+ESTADO DE LA IMPLEMENTACIÓN:
+Implementación técnica completada con pruebas funcionales satisfactorias.
+
+INFRAESTRUCTURA IMPLEMENTADA
+
+Proyecto GCP: proyecto-7-waf-shield-cloud
+Región: us-central1
+Aplicación: Universidad Nova Digital, desarrollada por Jhony Jiménez
+Servicio Cloud Run: waf-shield-app
+Repositorio Artifact Registry: waf-shield-repo
+Serverless NEG: waf-shield-neg
+Backend global: waf-shield-backend
+Política Cloud Armor: waf-shield-policy
+URL Map: waf-shield-url-map
+Proxy HTTPS: waf-shield-https-proxy
+IP pública: 34.160.56.213
+
+ACCESOS AL PROYECTO
+
+Google Cloud Console:
+https://console.cloud.google.com/home/dashboard?project=proyecto-7-waf-shield-cloud
+
+Página web de Universidad Nova Digital:
+https://34.160.56.213/
+
+Verificación de disponibilidad:
+https://34.160.56.213/healthcheck
+
+El acceso administrativo a Google Cloud requiere una cuenta con permisos IAM asignados.
+
+NOTA: El balanceador utiliza un certificado TLS autofirmado para las pruebas académicas. Los navegadores pueden mostrar advertencias de confianza.
+
+CONFIGURACIÓN DE SEGURIDAD
+
+Se implementó Google Cloud Armor con las siguientes reglas:
+
+Prioridad 1000: protección SQL Injection (sqli-v33-stable).
+Prioridad 1100: protección Cross-Site Scripting (xss-v33-stable).
+Acción de bloqueo: HTTP 403 Forbidden.
+
+La política de seguridad se encuentra asociada al backend global.
+
+Cloud Run tiene configurado el ingreso internal-and-cloud-load-balancing para restringir el acceso directo desde Internet.
+
+RESULTADOS DE PRUEBAS
+
+E2-51: Acceso HTTPS mediante balanceador - HTTP 200.
+E2-52: Prueba SQL Injection - HTTP 403.
+E2-53: Prueba XSS - HTTP 403.
+E2-56: Acceso mediante balanceador - HTTP 200; acceso directo a Cloud Run - HTTP 404.
+E2-57: Validación integral - HTTP 200 para solicitud legítima y HTTP 403 para patrones SQLi y XSS.
+
+Los resultados demuestran el funcionamiento de la aplicación mediante el balanceador y el rechazo de los patrones maliciosos utilizados en las pruebas.
+
+OBSERVACIONES Y PENDIENTES
+
+E2-54: Cloud Logging está habilitado, pero no se localizaron registros de tráfico que permitan identificar las reglas específicas responsables de los bloqueos.
+El certificado TLS es autofirmado y requiere renovación al vencer.
+El presupuesto de Google Cloud genera alertas, pero no limita automáticamente los gastos.
+Se recomienda continuar monitoreando los costos de Cloud Armor y del balanceador.
+
+DOCUMENTACIÓN
+
+Se actualizó la bitácora individual de Fase 2, conservando el formato institucional e incorporando las evidencias disponibles hasta E2-57.
+La documentación está disponible en formatos Word y PDF.
+
+CONCLUSIÓN:
+La infraestructura protegida del prototipo WAF Shield Cloud se encuentra implementada y ha superado las principales pruebas funcionales de seguridad. Queda pendiente completar la verificación de registros de bloqueo en Cloud Logging.
