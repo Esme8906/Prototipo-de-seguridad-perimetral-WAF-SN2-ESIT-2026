@@ -24,7 +24,7 @@ El proyecto está estructurado para una duración de 10 semanas divididas en las
 ## 4. Stack Tecnológico y Plan de Recursos (Fase 1)
 Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del equipo, se ha seleccionado el siguiente stack optimizado para entornos educativos y de control perimetral:
 - **Alojamiento de Aplicación Web (Backend / Cloud):** Google Cloud Platform (GCP) / Cloud Run
-- **Seguridad Perimetral y WAF:** Google Cloud Platform (GCP) / Cloud Armor / Cloudflare como capas de filtrado y control de tráfico.
+- **Seguridad Perimetral y WAF:** Google Cloud Platform (GCP) / Cloud Armor. En la Fase 2 se reportó la política `waf-shield-policy` con reglas SQLi y XSS.
 - **Control de Versiones y Gestión:** GitHub y GitHub Projects (Tablero Kanban).
 - **Herramientas de Diagramación y Calidad:** Draw.io / Lucidchart y Matrices de Riesgos OWASP.
 
@@ -34,9 +34,19 @@ Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del 
   - Documento de Análisis y Diseño
   - Diagramas de Topología y Flujo de Tráfico
   - Bitácoras individuales y grupales de la Fase 1
-- Fase 2 – Implementación y Configuración del WAF
+- [Fase 2 – Implementación y Configuración del WAF](<Fase 2 – Implementación y Configuración del WAF/>)
 - Fase 3 – Validación y Pruebas de Tráfico
 - Fase 4 – Cierre y Documentación Final
 
-## 6. Enlaces de Interés
+## 6. Avances de la Fase 2
+
+Durante esta fase se desplegó la aplicación de prueba en Cloud Run y se configuró Cloud Armor detrás del balanceador HTTPS.
+
+Según las validaciones reportadas, el tráfico legítimo respondió HTTP 200 por el balanceador; las solicitudes de prueba SQLi/XSS recibieron HTTP 403; y el acceso directo a la URL de Cloud Run respondió HTTP 404.
+
+Las pruebas funcionales de la aplicación reportaron 5/5 casos aprobados en el entorno local. Estas pruebas no representan una validación del WAF. La matriz de QA quedó preparada para ejecutarse en la siguiente fase. En Cloud Logging se revisó una consulta, pero no se encontraron solicitudes WAF para atribuir bloqueos.
+
+Las bitácoras y evidencias de la Fase 2 están organizadas en la [carpeta de Fase 2](<Fase 2 – Implementación y Configuración del WAF/>).
+
+## 7. Enlaces de Interés
 - Tablero de Gestión (GitHub Projects): https://github.com/users/Esme8906/projects/2
