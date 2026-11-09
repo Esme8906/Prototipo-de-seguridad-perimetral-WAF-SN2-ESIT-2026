@@ -31,12 +31,7 @@ Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del 
 ## 5. Estructura del Repositorio
 - Fase 0 – Onboarding y Planificación
 - Fase 1 – Análisis del entorno, riesgos y diseño de la solución
-  - Documento de Análisis y Diseño
-  - Diagramas de Topología y Flujo de Tráfico
-  - Bitácoras individuales y grupales de la Fase 1
 - Fase 2 – Implementación y Configuración del WAF
-- Fase 3 – Validación y Pruebas de Tráfico
-- Fase 4 – Cierre y Documentación Final
 
 ## 6. Avances por fase
 
