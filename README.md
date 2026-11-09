@@ -34,19 +34,21 @@ Para el desarrollo de este prototipo y de acuerdo con el análisis técnico del 
   - Documento de Análisis y Diseño
   - Diagramas de Topología y Flujo de Tráfico
   - Bitácoras individuales y grupales de la Fase 1
-- [Fase 2 – Implementación y Configuración del WAF](<Fase 2 – Implementación y Configuración del WAF/>)
+- Fase 2 – Implementación y Configuración del WAF
 - Fase 3 – Validación y Pruebas de Tráfico
 - Fase 4 – Cierre y Documentación Final
 
-## 6. Avances de la Fase 2
+## 6. Avances por fase
 
-Durante esta fase se desplegó la aplicación de prueba en Cloud Run y se configuró Cloud Armor detrás del balanceador HTTPS.
+### Fase 1 – Análisis del entorno, riesgos y diseño
 
-Según las validaciones reportadas, el tráfico legítimo respondió HTTP 200 por el balanceador; las solicitudes de prueba SQLi/XSS recibieron HTTP 403; y el acceso directo a la URL de Cloud Run respondió HTTP 404.
+Se analizó el entorno, la superficie de exposición y los riesgos del proyecto, y se definió el diseño inicial de la solución. Entre los entregables de esta fase están la matriz de riesgos OWASP, el diagrama de topología y flujo de tráfico, y las bitácoras del equipo. Los documentos están disponibles en la [Carpeta de Fase 1](<Fase 1 – Análisis del entorno, riesgos y diseño de la solución/>) 
 
-Las pruebas funcionales de la aplicación reportaron 5/5 casos aprobados en el entorno local. Estas pruebas no representan una validación del WAF. La matriz de QA quedó preparada para ejecutarse en la siguiente fase. En Cloud Logging se revisó una consulta, pero no se encontraron solicitudes WAF para atribuir bloqueos.
+### Fase 2 – Implementación y configuración del WAF
 
-Las bitácoras y evidencias de la Fase 2 están organizadas en la [carpeta de Fase 2](<Fase 2 – Implementación y Configuración del WAF/>).
+Se desplegó la aplicación de prueba en Cloud Run y se configuró Cloud Armor detrás del balanceador HTTPS. Según las validaciones reportadas, el tráfico legítimo respondió HTTP 200 por el balanceador, las solicitudes de prueba SQLi/XSS recibieron HTTP 403 y el acceso directo a la URL de Cloud Run respondió HTTP 404.
+
+Las pruebas funcionales locales de la aplicación reportaron 5/5 casos aprobados; estas no representan una validación del WAF. La matriz de QA quedó preparada, pero las pruebas de seguridad no se reportaron como ejecutadas. En Cloud Logging no se encontraron solicitudes WAF para atribuir los bloqueos. Las bitácoras y evidencias están disponibles en la [carpeta de Fase 2](<Fase 2 – Implementación y Configuración del WAF/>).
 
 ## 7. Enlaces de Interés
 - Tablero de Gestión (GitHub Projects): https://github.com/users/Esme8906/projects/2
