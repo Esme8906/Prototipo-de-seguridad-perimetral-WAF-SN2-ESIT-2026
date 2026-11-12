@@ -47,3 +47,4 @@ Comparar solicitudes legítimas y sospechosas enviadas por el balanceador HTTPS,
 
 **Ejecución técnica:** completada el 12/11/2026.  
 
+
