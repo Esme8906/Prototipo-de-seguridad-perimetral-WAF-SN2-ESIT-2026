@@ -46,4 +46,4 @@ Comparar solicitudes legítimas y sospechosas enviadas por el balanceador HTTPS,
 ## Estado administrativo
 
 **Ejecución técnica:** completada el 12/11/2026.  
-**Pendiente:** subir capturas al repositorio, comprobar enlaces y actualizar la tarjeta de Kanban con la fecha real y el vínculo a este documento. No se afirma que la tarjeta ya esté cerrada.
+
