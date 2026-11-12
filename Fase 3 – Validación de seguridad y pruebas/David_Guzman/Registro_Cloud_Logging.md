@@ -117,4 +117,4 @@ Este comando consulta registros existentes y no altera la configuración.
 **Objetivo técnico de trazabilidad:** alcanzado el 12/11/2026 para los eventos identificados.  
 **Resultado:** registros atribuibles recuperados, con política, prioridad, firma, acción y URL.  
 **Limitación:** sin eventos observados de prioridad 1100 en el intervalo consultado.  
-**Pendiente administrativo:** subir capturas, verificar enlaces, registrar fecha real y actualizar el estado de la tarjeta en GitHub.
+
