@@ -66,3 +66,4 @@ Esta decisión es **acotada a los casos probados**. La prioridad 1100 permanece 
 **Análisis técnico:** completado el 12/11/2026.  
 **Ajustes:** no necesarios según los casos evaluados; ninguno realizado.  
 
+
