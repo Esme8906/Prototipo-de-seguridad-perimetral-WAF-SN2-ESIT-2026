@@ -65,4 +65,4 @@ Esta decisión es **acotada a los casos probados**. La prioridad 1100 permanece 
 
 **Análisis técnico:** completado el 12/11/2026.  
 **Ajustes:** no necesarios según los casos evaluados; ninguno realizado.  
-**Pendiente administrativo:** publicar evidencias y documentos, insertar enlaces y actualizar el estado y la fecha real en GitHub. No se afirma que la tarjeta esté cerrada.
+
