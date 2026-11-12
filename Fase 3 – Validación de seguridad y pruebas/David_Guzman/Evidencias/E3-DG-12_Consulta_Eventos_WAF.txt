@@ -1,1 +1,79 @@
+trabajodavidg@cloudshell:~ (proyecto-7-waf-shield-cloud)$ echo "E3-DG-12 | BUSQUEDA DE EVENTOS WAF"
+date -u +"Fecha de consulta UTC: %Y-%m-%d %H:%M:%S"
 
+echo "Intervalo: 2026-11-12 16:10:00 a 16:17:00 UTC"
+echo "Recurso: http_load_balancer"
+echo "Codigos buscados: HTTP 403"
+
+echo "Comando: gcloud logging read con filtro de balanceador, intervalo UTC y HTTP 403"
+
+gcloud logging read \
+  'resource.type="http_load_balancer"
+   AND timestamp>="2026-11-12T16:10:00Z"
+   AND timestamp<="2026-11-12T16:17:00Z"
+   AND httpRequest.status=403' \
+  --project=proyecto-7-waf-shield-cloud \
+  --limit=20 \
+  --format="yaml(timestamp,httpRequest.requestUrl,httpRequest.status,jsonPayload.enforcedSecurityPolicy,jsonPayload.statusDetails)"
+E3-DG-12 | BUSQUEDA DE EVENTOS WAF
+Fecha de consulta UTC: 2026-11-12 16:20:28
+Intervalo: 2026-11-12 16:10:00 a 16:17:00 UTC
+Recurso: http_load_balancer
+Codigos buscados: HTTP 403
+Comando: gcloud logging read con filtro de balanceador, intervalo UTC y HTTP 403
+---
+httpRequest:
+  requestUrl: https://34.160.56.213/search?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E
+  status: 403
+jsonPayload:
+  enforcedSecurityPolicy:
+    configuredAction: DENY
+    name: waf-shield-policy
+    outcome: DENY
+    preconfiguredExprIds:
+    - owasp-crs-v030301-id942431-sqli
+    priority: 1000
+  statusDetails: denied_by_security_policy
+timestamp: '2026-11-12T16:14:11.705859Z'
+---
+httpRequest:
+  requestUrl: https://34.160.56.213/search?q=%27+OR+1%3D1+--
+  status: 403
+jsonPayload:
+  enforcedSecurityPolicy:
+    configuredAction: DENY
+    name: waf-shield-policy
+    outcome: DENY
+    preconfiguredExprIds:
+    - owasp-crs-v030301-id942180-sqli
+    priority: 1000
+  statusDetails: denied_by_security_policy
+timestamp: '2026-11-12T16:12:25.903376Z'
+---
+httpRequest:
+  requestUrl: https://34.160.56.213/search?q=%27+OR+1%3D1+--
+  status: 403
+jsonPayload:
+  enforcedSecurityPolicy:
+    configuredAction: DENY
+    name: waf-shield-policy
+    outcome: DENY
+    preconfiguredExprIds:
+    - owasp-crs-v030301-id942180-sqli
+    priority: 1000
+  statusDetails: denied_by_security_policy
+timestamp: '2026-11-12T16:12:09.927886Z'
+---
+httpRequest:
+  requestUrl: https://34.160.56.213/search?q=%27+OR+1%3D1+--
+  status: 403
+jsonPayload:
+  enforcedSecurityPolicy:
+    configuredAction: DENY
+    name: waf-shield-policy
+    outcome: DENY
+    preconfiguredExprIds:
+    - owasp-crs-v030301-id942180-sqli
+    priority: 1000
+  statusDetails: denied_by_security_policy
+timestamp: '2026-11-12T16:10:36.572038Z'
