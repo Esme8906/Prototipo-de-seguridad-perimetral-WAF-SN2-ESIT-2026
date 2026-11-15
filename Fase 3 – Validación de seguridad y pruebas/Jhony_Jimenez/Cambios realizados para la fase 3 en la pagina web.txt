@@ -1,0 +1,15 @@
+Cambios realizados para la fase 3:
+- [src/app.js](C:/Users/Chalateco/Documents/ChatGPT/jhony desarrolaldor web/waf-shield-app/src/app.js)
+  - Login funcional con cuentas ficticias.
+  - Sesiones temporales con token generado al iniciar sesión.
+  - Nueva ruta protegida GET /dashboard.
+  - /comments conserva hasta 10 consultas mientras Node.js está encendido.
+  - /admin mantiene su 403 como respuesta de la aplicación.
+- [public/app.js]
+  - Tras login correcto consulta /dashboard y muestra el resultado en el mismo espacio visual.
+  - Muestra respuestas JSON y HTML. Si el WAF devuelve una página HTML con 403, ya no aparecerá engañosamente como “No se pudo conectar”.
+- [public/index.html]
+  - Actualicé los textos que decían que el login no funcionaba.
+  - Conservé toda la estructura y ubicación del frontend.
+- [app.test.js] y [README.md]
+  - Ahora describen el comportamiento actual de rutas, sesión temporal y comentarios en memoria.
