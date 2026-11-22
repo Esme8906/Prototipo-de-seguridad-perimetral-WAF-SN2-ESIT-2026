@@ -45,6 +45,24 @@ Comparar solicitudes legítimas y sospechosas enviadas por el balanceador HTTPS,
 
 ## Estado administrativo
 
-**Ejecución técnica:** completada el 12/11/2026.  
+**Ejecución técnica:** completada el 12/11/2026.
 
+---
 
+## Actualización complementaria — 22 de noviembre de 2026
+
+### Casos complementarios (entorno v2, 22/11/2026)
+
+| Caso | Objetivo | Fuente | Resultado observado | Estado |
+|---|---|---|---|---|
+| F3-DG-09 | Verificar reglas Cloud Armor v2 | `security-policies describe` | SQLi 1000 y XSS 1100 `deny(403)`, IP 2000 `allow`, default `deny(403)`; todas `preview:false` | Configuración verificada |
+| F3-DG-10 | Verificar política y logging del backend | `backend-services describe` | Backend v2 asociado a política v2; logs 100 % | Configuración verificada |
+| F3-DG-11 | Verificar NEG y destino | `network-endpoint-groups describe` | `waf-shield-neg-v2` → `waf-shield-app`, tag `v2-test` | Configuración verificada |
+| F3-DG-12 | Verificar URL Map | `url-maps describe` | Host de pruebas → backend v2; default → backend v1 | Configuración verificada |
+| F3-DG-13 | Confirmar tráfico legítimo | `gcloud logging read` | 2026-11-22T06:31:03.588061Z; HTTP 200; `ACCEPT`; prioridad 2000 | Evidencia en logs |
+| F3-DG-14 | Confirmar bloqueo de solicitudes sospechosas | `gcloud logging read` | 4 eventos HTTP 403; `DENY`; prioridad 1000; 06:33:01, 06:59:18, 07:01:01, 07:01:23 UTC | Evidencia en logs; atribuibles a SQLi |
+| F3-DG-15 | Confirmar revisiones de Cloud Run | `gcloud run services describe` | v1 100 % tráfico directo; v2 tag `v2-test` sin porcentaje directo | Configuración verificada |
+| F3-DG-16 | Validación independiente de XSS 1100 | No se obtuvo evento con prioridad 1100 | No demostrado | Pendiente |
+| F3-DG-17 | Bloqueo efectivo desde IP no autorizada | No se ejecutó una prueba externa específica | No demostrado | Pendiente |
+
+**Trazabilidad:** los resultados de F3-DG-09 a F3-DG-15 proceden de las salidas de Cloud Shell compartidas en la sesión del 22/11; faltan capturas archivadas en GitHub. Las horas corresponden a UTC y no deben confundirse con la hora local. Los casos de Mauricio están en documento separado.
