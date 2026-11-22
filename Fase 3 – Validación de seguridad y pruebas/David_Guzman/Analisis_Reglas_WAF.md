@@ -64,6 +64,21 @@ Esta decisión es **acotada a los casos probados**. La prioridad 1100 permanece 
 ## 7. Estado de la tarjeta Kanban
 
 **Análisis técnico:** completado el 12/11/2026.  
-**Ajustes:** no necesarios según los casos evaluados; ninguno realizado.  
+**Ajustes:** no necesarios según los casos evaluados; ninguno realizado.
 
+---
 
+## Actualización complementaria — 22 de noviembre de 2026
+
+### Política aislada de pruebas v2
+
+| Prioridad | Condición | Acción | Preview |
+|---|---|---|---|
+| 1000 | `evaluatePreconfiguredWaf('sqli-v33-stable')` | `deny(403)` | `false` |
+| 1100 | `evaluatePreconfiguredWaf('xss-v33-stable')` | `deny(403)` | `false` |
+| 2000 | IP `34.75.43.65/32` | `allow` | `false` |
+| 2147483647 | Todas las demás IP (`*`) | `deny(403)` | `false` |
+
+Las solicitudes con cargas XSS probadas en v2 produjeron HTTP 403, pero los eventos correlacionados correspondieron a **SQLi prioridad 1000** (firma `owasp-crs-v030301-id942431-sqli`), no a XSS 1100. Por tanto, no afirmar que se haya probado el bloqueo independiente por XSS. No se realizaron ajustes de reglas durante esta actualización.
+
+**Distinción:** el análisis original del 12/11 describe `waf-shield-policy` de producción, cuya regla predeterminada era `allow`. Esta sección describe exclusivamente `waf-shield-policy-v2` y su regla predeterminada `deny(403)`; no fusionar ambas configuraciones.
