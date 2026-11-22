@@ -116,5 +116,26 @@ Este comando consulta registros existentes y no altera la configuración.
 
 **Objetivo técnico de trazabilidad:** alcanzado el 12/11/2026 para los eventos identificados.  
 **Resultado:** registros atribuibles recuperados, con política, prioridad, firma, acción y URL.  
-**Limitación:** sin eventos observados de prioridad 1100 en el intervalo consultado.  
+**Limitación:** sin eventos observados de prioridad 1100 en el intervalo consultado.
 
+---
+
+## Actualización complementaria — 22 de noviembre de 2026
+
+### Consulta de eventos v2 — 22/11/2026
+
+Filtro utilizado:
+
+```text
+resource.type="http_load_balancer" AND resource.labels.backend_service_name="waf-shield-backend-v2" AND jsonPayload.enforcedSecurityPolicy.name="waf-shield-policy-v2"
+```
+
+| Timestamp UTC | HTTP | Outcome | Prioridad | Detalle |
+|---|---:|---|---:|---|
+| 2026-11-22T06:31:03.588061Z | 200 | ACCEPT | 2000 | `response_sent_by_backend` |
+| 2026-11-22T06:33:01.978616Z | 403 | DENY | 1000 | `denied_by_security_policy` |
+| 2026-11-22T06:59:18.337740Z | 403 | DENY | 1000 | `denied_by_security_policy` |
+| 2026-11-22T07:01:01.967440Z | 403 | DENY | 1000 | `denied_by_security_policy` |
+| 2026-11-22T07:01:23.232046Z | 403 | DENY | 1000 | `denied_by_security_policy` |
+
+**Interpretación:** Cloud Armor v2 registró una solicitud aceptada por la regla de IP y cuatro denegadas por SQLi. La consulta no muestra un bloqueo atribuible a la prioridad XSS 1100. Esta tabla reproduce la salida compartida por Cloud Shell; conservar capturas o exportación de logs como evidencia primaria. Logging del backend v2: `enable:true`, `sampleRate:1.0`, `optionalMode:EXCLUDE_ALL_OPTIONAL`.
