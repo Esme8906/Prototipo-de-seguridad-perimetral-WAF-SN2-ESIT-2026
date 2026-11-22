@@ -54,9 +54,9 @@ Los scripts de auditoría atómica, evidencias gráficas y aprovisionamiento en 
 
 ```text
 SEMANA 4/
-├── 📂 caps/
-│   ├── 🖼️ localhost_5050-WAF-Shield-Cloud-Ser.png      # Evidencia gráfica de auditoría en entorno local
-│   └── 🖼️ prueba en gpc-WAF-Shield-Cloud-·-S.jpeg      # Evidencia gráfica de auditoría en sandbox GCP
+├── 📂 caps
+├── 🖼️ localhost_5050-WAF-Shield-Cloud-Ser.png      # Evidencia gráfica de auditoría en entorno local
+├── 🖼️ prueba en gpc-WAF-Shield-Cloud-·-S.jpeg      # Evidencia gráfica de auditoría en sandbox GCP
 ├── 📂 prueba_jhony/
 │   └── 📂 tarea-main/                                  # Versión v2 del portal desplegada en Cloud Run
 │       ├── 📂 public/                                  # Interfaz web (index.html, app.js, styles.css)
@@ -120,20 +120,15 @@ gcloud compute security-policies rules create 3000 --security-policy waf-shield-
 
 ## 📸 Evidencias de Auditoría Atómica (Local vs. GCP Sandbox)
 
-### 1. 🐳 Entorno Local (`http://localhost:8080` · Nginx + ModSecurity OWASP CRS)
+### 1. Entorno Local (`http://localhost:8080` · Nginx + ModSecurity OWASP CRS)
 * **Resultado:** 3 bloqueos perimetrales `HTTP 403` (SQLi en `10.92 ms`, XSS en `8.55 ms`, `/admin` en `27.62 ms`) y latencia promedio de `85.81 ms`.
 
-<p align="center">
-  <img src="./caps/localhost_5050-WAF-Shield-Cloud-Ser.png" alt="Auditoría WAF Local Nginx ModSecurity" width="90%" />
-</p>
+![Auditoría WAF Local Nginx ModSecurity](./localhost_5050-WAF-Shield-Cloud-Ser.png)
 
-### 2. ☁️ Entorno Sandbox Aislado en Google Cloud (`http://8.233.53.34` · Cloud Run + Cloud Armor)
+### 2. Entorno Sandbox Aislado en Google Cloud (`http://8.233.53.34` · Cloud Run + Cloud Armor)
 * **Resultado:** 7 bloqueos perimetrales `HTTP 429 Too Many Requests` en ráfaga de concurrencia (aislamiento `10s`) y latencia promedio global de `239.30 ms`.
 
-<p align="center">
-  <img src="./caps/prueba%20en%20gpc-WAF-Shield-Cloud-%C2%B7-S.jpeg" alt="Auditoría WAF Sandbox GCP Cloud Armor" width="90%" />
-</p>
-
+![Auditoría WAF Sandbox GCP Cloud Armor](./prueba%20en%20gpc-WAF-Shield-Cloud-%C2%B7-S.jpeg)
 ## 🔍 Conclusiones y Refinamiento Técnico
 
 1. **⚖️ Complementariedad entre DPI y Mitigación Volumétrica:** ModSecurity local detuvo instantáneamente firmas básicas de SQLi (`10.92 ms`) y XSS (`8.55 ms`), mientras que **Cloud Armor** protegió la disponibilidad del contenedor en la nube rechazando el **70 %** de la ráfaga de fuerza bruta con `HTTP 429 Too Many Requests` en el borde de red.
